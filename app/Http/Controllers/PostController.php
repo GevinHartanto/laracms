@@ -29,6 +29,10 @@ class PostController extends Controller
         //
 		return "I am method that create stuff.";
     }
+	
+	public function contact(){
+		return view('contact');
+	}
 
     /**
      * Store a newly created resource in storage.
