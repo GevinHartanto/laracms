@@ -15,13 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contoh', function(){
-	//return view ('Welcome');
-	return "Hi Guys...";
+Route::get('/about', function(){
+	return "Hi About Page";
 });
 
-Route::get('/admin/post', function(){
-	return "Admin Is Here";
+Route::get('/contact', function(){
+	return "Hi, I am Contact";
 });
+
+Route::get('/post/{id}/{name}', function($id, $name){
+	return "This is post number" . $id . "" . $name;
+});
+
+
 
 
