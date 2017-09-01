@@ -46,6 +46,10 @@ Route::get('/delete', function(){
 	$post->delete();
 });
 
+Route::get('/delete2', function(){
+	Post::destroy([1,2]);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
