@@ -62,8 +62,9 @@ Route::get('/readsoftdelete', function(){
 	return $post;
 });
 
-
-
+Route::get('/restore', function(){
+	Post::withTrashed()->where('id', 4)->restore();
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
