@@ -1,5 +1,19 @@
 <?php
 
+use App\Post;
+
+Route::get('/read', function(){
+	$posts = Post::all();
+	foreach($posts as $post){
+			return $post->title;
+	}
+});
+
+Route::get('/find', function(){
+	$post = Post::find(1);
+	return $post->title;
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,7 +30,7 @@
 //});
 
 
-Route::get('/insert', function(){
+/*Route::get('/insert', function(){
 	DB::insert("INSERT INTO posts(title, content) values(?, ?)",
 		['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
 });
@@ -40,7 +54,7 @@ Route::get('/delete', function(){
 	return $deleted;
 	
 });
-
+*/
 
 
 
