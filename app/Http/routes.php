@@ -21,3 +21,5 @@ Route::resource('posts', 'PostController');
 
 Route::get('/contact', 'PostController@contact');
 
+Route::get('post/{id}', 'PostController@show_post');
+
