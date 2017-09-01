@@ -50,6 +50,10 @@ Route::get('/delete2', function(){
 	Post::destroy([1,2]);
 });
 
+Route::get('/softdelete', function(){
+	Post::find(4)->delete();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
