@@ -33,3 +33,36 @@ Route::get('/update', function(){
 	$updated = DB::update("UPDATE posts SET title = 'Update title' WHERE id = ?", [1]);
 	return $updated;
 });
+
+
+Route::get('/delete', function(){
+	$deleted = DB::delete("DELETE FROM posts WHERE id =?", [1]);
+	return $deleted;
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
