@@ -34,8 +34,9 @@ class PostController extends Controller
 		return view('contact');
 	}
 	
-	public function show_post($id){
-		return view('post')->with('id', $id);
+	public function show_post($id, $name, $password){
+		//return view('post')->with('id', $id);
+		return view('post', compact('id', 'name', 'password'));
 	}
 
     /**
