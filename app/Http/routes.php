@@ -15,15 +15,16 @@
 //    return view('welcome');
 //});
 
-//Route::get('/post/{id}', 'PostController@index');
-
-//Route::resource('posts', 'PostController');
-
-//Route::get('/contact', 'PostController@contact');
-
-//Route::get('post/{id}/{name}/{password}', 'PostController@show_post');
 
 Route::get('/insert', function(){
 	DB::insert("INSERT INTO posts(title, content) values(?, ?)",
 		['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
+});
+
+Route::get('/read', function(){
+	$results = DB::select("SELECT * FROM posts WHERE id = ?", [1]);
+	//	foreach($results as $post){
+	//	return $post->title;
+	// }
+	return $results;
 });
