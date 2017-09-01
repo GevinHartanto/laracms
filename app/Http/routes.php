@@ -17,9 +17,13 @@
 
 //Route::get('/post/{id}', 'PostController@index');
 
-Route::resource('posts', 'PostController');
+//Route::resource('posts', 'PostController');
 
-Route::get('/contact', 'PostController@contact');
+//Route::get('/contact', 'PostController@contact');
 
-Route::get('post/{id}/{name}/{password}', 'PostController@show_post');
+//Route::get('post/{id}/{name}/{password}', 'PostController@show_post');
 
+Route::get('/insert', function(){
+	DB::insert("INSERT INTO posts(title, content) values(?, ?)",
+		['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
+});
