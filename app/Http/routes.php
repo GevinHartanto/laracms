@@ -23,8 +23,13 @@ Route::get('/insert', function(){
 
 Route::get('/read', function(){
 	$results = DB::select("SELECT * FROM posts WHERE id = ?", [1]);
-	//	foreach($results as $post){
-	//	return $post->title;
-	// }
-	return $results;
+		foreach($results as $post){
+		return $post->title;
+	 }
+	//return $results;
+});
+
+Route::get('/update', function(){
+	$updated = DB::update("UPDATE posts SET title = 'Update title' WHERE id = ?", [1]);
+	return $updated;
 });
