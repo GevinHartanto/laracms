@@ -30,6 +30,13 @@ Route::get('/create', function(){
 	Post::create(['title' => 'create method', 'content' => 'saya belajar banyak hari ini']);	
 });
 
+Route::get('/basicupdate', function(){
+	$post = Post::find(2);
+	$post->title = 'Update Eloquent Title';
+	$post->content = 'Update Eloquent Content';
+	$post->save();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
