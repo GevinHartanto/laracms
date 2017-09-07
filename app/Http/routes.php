@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\User;
 
 Route::get('/read', function(){
 	$posts = Post::all();
@@ -68,6 +69,11 @@ Route::get('/restore', function(){
 
 Route::get('/forcedelete', function(){
 	Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+});
+
+//One to One Relationships
+Route::get('user/{id}/post', function($id){
+	return User::find($id)->post->title;
 });
 
 /*
