@@ -78,7 +78,15 @@ Route::get('user/{id}/post', function($id){
 
 //One to Many Relationship
 Route::get('/posts', function(){
-	$user = User::find(1);
+	$user = User::find(3);
+	
+	foreach($user->posts as $post){
+		echo $post->title;
+	}
+});
+
+Route::get('/user/{id}/posts', function($id){
+	$user = User::find($id);
 	
 	foreach($user->posts as $post){
 		echo $post->title;
