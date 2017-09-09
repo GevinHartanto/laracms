@@ -2,6 +2,7 @@
 
 use App\Post;
 use App\User;
+use App\Country;
 
 Route::get('/read', function(){
 	$posts = Post::all();
@@ -103,6 +104,7 @@ Route::get('user/pivot', function(){
 	}
 });
 
+//latihan
 Route::get('user/{id}/pivot', function($id){
 	$user = User::find($id);
 	
@@ -111,6 +113,7 @@ Route::get('user/{id}/pivot', function($id){
 	}
 });
 
+//latihan
 Route::get('/user/{id}/posts', function($id){
 	$user = User::find($id);
 	
@@ -121,6 +124,15 @@ Route::get('/user/{id}/posts', function($id){
 
 Route::get('/post/{id}/user', function($id){
 	return Post::find($id)->user->name;
+});
+
+//Has MAny through relation
+Route::get('/user/country', function(){
+	$country = Country::find(1);
+	
+	foreach($country->posts as $post){
+			return $post->title;
+	}
 });
 
 /*
