@@ -135,6 +135,15 @@ Route::get('/user/country', function(){
 	}
 });
 
+//Latihan membuat pilihan country dinamis dgn route
+Route::get('/user/country/{id}', function($id){
+	$country = Country::find($id);
+	
+	foreach($country->posts as $post){
+			return $post->title;
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
