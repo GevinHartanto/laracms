@@ -144,6 +144,7 @@ Route::get('/user/country/{id}', function($id){
 	}
 });
 
+
 //Polymorphic relations
 Route::get('/post/photos', function(){
 	$post = Post::find(1);
@@ -160,6 +161,25 @@ Route::get('/user/photos', function(){
 			return $photo->path;
 	}
 });
+
+//Latihan modifikasi foto dr user/post tampil sesuai id pada Url
+Route::get('/post/photos/{id}', function($id){
+	$post = Post::find($id);
+	
+	foreach($post->photos as $photo){
+		return $photo->path;
+	}
+});
+
+Route::get('/user/photos/{id}', function($id){
+	$user = User::find($id);
+	
+	foreach($user->photos as $photo){
+			return $photo->path;
+	}
+});
+
+
 
 /*
 |--------------------------------------------------------------------------
