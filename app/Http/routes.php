@@ -103,6 +103,14 @@ Route::get('user/pivot', function(){
 	}
 });
 
+Route::get('user/{id}/pivot', function($id){
+	$user = User::find($id);
+	
+	foreach($user->roles as $role){
+			echo $role->pivot->created_at;
+	}
+});
+
 Route::get('/user/{id}/posts', function($id){
 	$user = User::find($id);
 	
