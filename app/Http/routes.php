@@ -4,6 +4,7 @@ use App\Post;
 use App\User;
 use App\Country;
 use App\Photo;
+use App\Tag;
 use App\Video;
 
 Route::get('/read', function(){
@@ -187,6 +188,14 @@ Route::get('photo/{id}/post', function($id){
 	return $photo->imageable;
 });
 
+//Polymorphic Many to Many
+Route::get('/post/tag', function(){
+	$post = Post::find(1);
+	foreach($post->tags as $tag){
+			echo $tag->name;
+	}
+});
+
 //Latihan Polymorphic Many to Many menjadi dinamis dengan Url
 Route::get('/post/tag/{id}', function($id){
 	$post = Post::find($id);
@@ -195,7 +204,7 @@ Route::get('/post/tag/{id}', function($id){
 	}
 });
 
-//LAtihan Polymorphic Many to Many menjadi dinamis dengan url
+//Latihan Polymorphic Many to Many menjadi dinamis dengan url(video)
 Route::get('/video/tag/{id}', function($id){
 	$video = Video::find($id);
 	foreach($video->tags as $tag){
@@ -203,13 +212,14 @@ Route::get('/video/tag/{id}', function($id){
 	}
 });
 
-//Latihan
-Route::get('/post/tag/{id}', function($id){
-	$post = Post::find($id);
-	foreach($post->tags as $tag){
-			echo $tag->name;
+//Polymorphic Many to Many - retrieving owner
+Route::get('/tag/post', function(){
+	$tag = Tag::find(1);
+	foreach($tag->posts as $post){
+			echo $post->title;
 	}
 });
+
 
 ;
 
