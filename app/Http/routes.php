@@ -4,6 +4,7 @@ use App\Post;
 use App\User;
 use App\Country;
 use App\Photo;
+use App\Video;
 
 Route::get('/read', function(){
 	$posts = Post::all();
@@ -186,14 +187,31 @@ Route::get('photo/{id}/post', function($id){
 	return $photo->imageable;
 });
 
-//Polymorphic Many to Many
-Route::get('/post/tag', function(){
-	$post = Post::find(1);
+//Latihan Polymorphic Many to Many menjadi dinamis dengan Url
+Route::get('/post/tag/{id}', function($id){
+	$post = Post::find($id);
 	foreach($post->tags as $tag){
 			echo $tag->name;
 	}
 });
 
+//LAtihan Polymorphic Many to Many menjadi dinamis dengan url
+Route::get('/video/tag/{id}', function($id){
+	$video = Video::find($id);
+	foreach($video->tags as $tag){
+			echo $tag->name;
+	}
+});
+
+//Latihan
+Route::get('/post/tag/{id}', function($id){
+	$post = Post::find($id);
+	foreach($post->tags as $tag){
+			echo $tag->name;
+	}
+});
+
+;
 
 
 /*
