@@ -14,10 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
-		return "Hello...berhasil coy, ini post no. " . $id;
+		//return "Hello...berhasil coy, ini post no. " . $id;
+		$posts = Post::all();
+		return view('posts.index', compact('posts'));
     }
 
     /**
@@ -58,6 +60,8 @@ class PostController extends Controller
 		//$post = new Post;
 		//$post->title = $request->title;
 		//$post->save();
+		
+		return redirect('/posts');
     }
 
     /**
