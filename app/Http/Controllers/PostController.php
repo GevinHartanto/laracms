@@ -27,7 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
-		return "I am method that create stuff.";
+		return view('posts.create');
     }
 	
 	public function contact(){
@@ -49,6 +49,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+		return $request->title;
     }
 
     /**

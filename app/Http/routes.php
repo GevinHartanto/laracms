@@ -223,7 +223,7 @@ use App\Video;
 
 
 
-Route::resource('/post', 'PostController');
+Route::resource('/posts', 'PostController');
 
 
 /*

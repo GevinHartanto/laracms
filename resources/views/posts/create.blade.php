@@ -6,6 +6,7 @@
 
 	<form action="/posts" method="post">
 		<input type="text" name="title" />
+		{{csrf_field()}}
 		<input type="submit" name="submit" />
 	</form>
 	
