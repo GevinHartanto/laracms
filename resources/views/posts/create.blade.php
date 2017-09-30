@@ -5,11 +5,18 @@
 @section('content')
 
 	<!-- form action="/posts" method="post"> -->
-	{!!Form::open()!!}
-		<input type="text" name="title" />
-		{{csrf_field()}}
-		<input type="submit" name="submit" />
-	</form>
+	{!!Form::open(['method'=>'POST', 'action' =>'PostController@store'])!!}
+	
+		<div class="form-group">
+			{!! Form::label('title', 'Title:') !!}
+			{!! Form::text('title', null, ['class'=>'form-control']) !!}
+		</div>
+		
+		<div class="form-group">
+			{!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+		</div>
+		
+		{!! Form::close() !!}
 	
 @stop
 
